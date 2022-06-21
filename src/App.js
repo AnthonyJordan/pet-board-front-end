@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import TitleBox from "./components/TitleBox";
+import DisplayBox from "./components/DisplayBox";
 
 function App() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/users")
+      .then((res) => res.json())
+      .then((users) => setUsers(users));
+  }, []);
+
+  function addUser(user) {
+    const updatedUsers = [...users, user];
+    setUsers(updatedUsers);
+  }
+
+  function deleteUser(id) {
+    const updatedUsers = users.filter((user) => user.id !== id);
+    setUsers(updatedUsers);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <TitleBox onUserAdd={addUser}></TitleBox>
+      </div>
+      <div className="display">
+        <DisplayBox users={users} onUserDelete={deleteUser}></DisplayBox>
+      </div>
+    </>
   );
 }
 

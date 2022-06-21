@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Steve",
+      "pets": [
+        {
+          "id": 1,
+          "name": "Clyde",
+          "img_url": "https://www.thesprucepets.com/thmb/nNyzPMxOyf2Jc2yD7wy4YRGSCo0=/941x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/facts-about-black-cats-554102-hero-7281a22d75584d448290c359780c2ead.jpg",
+          "description": "A big cutie",
+          "user_id": 1
+        },
+        {
+          "id": 1,
+          "name": "Leeloo",
+          "img_url": "https://www.thegoodypet.com/wp-content/uploads/2022/02/Black-Cat-Breeds-3.jpeg",
+          "description": "A big cutie",
+          "user_id": 1
+        },
+        {
+          "id": 1,
+          "name": "Panther",
+          "img_url": "https://www.thegoodypet.com/wp-content/uploads/2022/02/small-cat-breeds.jpg",
+          "description": "A big cutie",
+          "user_id": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Jack",
+      "pets": [
+        {
+          "id": 1,
+          "name": "Kitty",
+          "img_url": "https://www.purina.co.uk/sites/default/files/2020-12/Understanding%20Your%20Cat%27s%20Body%20LanguageHERO.jpg",
+          "description": "Meow Cat",
+          "user_id": 2
+        }
+      ]
+    }
+  ]
+}
