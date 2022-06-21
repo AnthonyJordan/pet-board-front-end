@@ -11,6 +11,6 @@ function DisplayBox({ users, onUserDelete }) {
       onUserDelete={onUserDelete}
     ></UserDisplay>
   ));
-  return <div className="displayBox">{userElements}</div>;
+  return <div className="displayBox display">{userElements}</div>;
 }
 export default DisplayBox;

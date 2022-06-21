@@ -1,12 +1,12 @@
 import React from "react";
-import InputForm from "./InputForm";
+import FormSelector from "./FormSelector";
 
-function TitleBox() {
+function TitleBox({ users, onAddUser }) {
   return (
-    <div className="titleBox">
+    <div className="titleBar">
       <h1>Pet Board</h1>
       <p>Tell us about your pets!</p>
-      <InputForm></InputForm>
+      <FormSelector users={users} onAddUser={onAddUser}></FormSelector>
     </div>
   );
 }

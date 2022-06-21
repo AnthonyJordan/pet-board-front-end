@@ -5,7 +5,7 @@ function PetDisplay({ id, name, description, user_id, img_url }) {
     <div className="petBox">
       <img src={img_url} alt="Pet"></img>
       <span className="descriptionText">{description}</span>
-      <p>{name}</p>
+      <div className="name">{name}</div>
     </div>
   );
 }

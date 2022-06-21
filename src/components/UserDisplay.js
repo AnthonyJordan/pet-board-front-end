@@ -4,7 +4,7 @@ import PetDisplay from "./PetDisplay";
 function UserDisplay({ name, pets, id, onUserDelete }) {
   const petElements = pets.map((pet) => (
     <PetDisplay
-      key={pet.id}
+      key={pet.name}
       id={pet.id}
       name={pet.name}
       description={pet.description}
@@ -14,8 +14,8 @@ function UserDisplay({ name, pets, id, onUserDelete }) {
   ));
   return (
     <div className="userDisplay">
-      <div>{name}</div>
-      <div>{petElements}</div>
+      <h3 className="name">{name}</h3>
+      <div className="displayBox">{petElements}</div>
     </div>
   );
 }

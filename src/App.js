@@ -22,12 +22,8 @@ function App() {
   }
   return (
     <>
-      <div>
-        <TitleBox onUserAdd={addUser}></TitleBox>
-      </div>
-      <div className="display">
-        <DisplayBox users={users} onUserDelete={deleteUser}></DisplayBox>
-      </div>
+      <TitleBox users={users} onAddUser={addUser}></TitleBox>
+      <DisplayBox users={users} onUserDelete={deleteUser}></DisplayBox>
     </>
   );
 }
