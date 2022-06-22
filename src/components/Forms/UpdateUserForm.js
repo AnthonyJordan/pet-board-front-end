@@ -5,18 +5,24 @@ function UpdateUserForm({ users, onUpdateUser }) {
     name: "",
     id: 0,
   });
+
   const options = users.map((user) => (
     <option key={user.id} value={user.id}>
       {user.name}
     </option>
   ));
+
   function handleFormChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
+
   function handleSubmit(e) {
     e.preventDefault();
-    fetch(`http://localhost:8000/users/${formData.id}`, {
-      method: "POST",
+    if (formData.id === "0" || formData.name === "") {
+      return;
+    }
+    fetch(`http://localhost:9292/users/${formData.id}`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
@@ -25,10 +31,11 @@ function UpdateUserForm({ users, onUpdateUser }) {
       .then((r) => r.json())
       .then((updatedUser) => onUpdateUser(updatedUser));
   }
+
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <div className="custom-select">
-        <select onChange={(e) => handleFormChange(e)}>
+        <select name="id" onChange={(e) => handleFormChange(e)}>
           <option value="0">Select User:</option>
           {options}
         </select>
@@ -42,7 +49,7 @@ function UpdateUserForm({ users, onUpdateUser }) {
           value={formData.name}
         />
       </label>
-      <input type="submit" value="Add user" />
+      <input type="submit" value="Update User" />
     </form>
   );
 }

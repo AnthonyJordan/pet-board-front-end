@@ -10,7 +10,7 @@ function AddUserForm({ onAddUser }) {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:8000/users", {
+    fetch("http://localhost:9292/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +31,7 @@ function AddUserForm({ onAddUser }) {
           value={formData.name}
         />
       </label>
-      <input type="submit" value="Add user" />
+      <input type="submit" value="Add User" />
     </form>
   );
 }

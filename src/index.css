@@ -6,6 +6,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+* {
+  margin: 0;  
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -63,11 +66,12 @@ code {
 
 
 
-.titleBar{
+.titleBox{
   background-color: rgb(13, 160, 179); 
-  position: fixed;
-  z-index: 1;
+  position: sticky;
+  z-index: 2;
   width: 100%;
   text-align: center; 
+  top: 0;
 
 }
