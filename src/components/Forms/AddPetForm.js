@@ -28,6 +28,12 @@ function AddPetForm({ users, onAddPet }) {
     })
       .then((r) => r.json())
       .then((pet) => onAddPet(pet));
+    setFormData({
+      name: "",
+      user_id: 0,
+      img_url: "",
+      description: "",
+    });
   }
   return (
     <form onSubmit={(e) => handleSubmit(e)}>

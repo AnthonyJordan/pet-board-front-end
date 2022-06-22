@@ -16,19 +16,23 @@ function UpdatePetForm({ users, onUpdatePet }) {
   ));
 
   let petOptions = formData.user_id
-    ? users[formData.user_id - 1].pets.map((pet) => (
-        <option key={pet.id} value={pet.id}>
-          {pet.name}
-        </option>
-      ))
-    : null;
-  useEffect(() => {
-    petOptions = formData.user_id
-      ? users[formData.user_id - 1].pets.map((pet) => (
+    ? users
+        .find((user) => user.id == formData.user_id)
+        .pets.map((pet) => (
           <option key={pet.id} value={pet.id}>
             {pet.name}
           </option>
         ))
+    : null;
+  useEffect(() => {
+    petOptions = formData.user_id
+      ? users
+          .find((user) => user.id == formData.user_id)
+          .pets.map((pet) => (
+            <option key={pet.id} value={pet.id}>
+              {pet.name}
+            </option>
+          ))
       : null;
   }, [formData.user_id]);
 
@@ -54,6 +58,13 @@ function UpdatePetForm({ users, onUpdatePet }) {
     })
       .then((r) => r.json())
       .then((pet) => onUpdatePet(pet));
+    setFormData({
+      name: "",
+      user_id: 0,
+      img_url: "",
+      description: "",
+      id: 0,
+    });
   }
   return (
     <form onSubmit={(e) => handleSubmit(e)}>

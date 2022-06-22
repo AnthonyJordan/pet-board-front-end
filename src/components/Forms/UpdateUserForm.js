@@ -30,6 +30,10 @@ function UpdateUserForm({ users, onUpdateUser }) {
     })
       .then((r) => r.json())
       .then((updatedUser) => onUpdateUser(updatedUser));
+    setFormData({
+      name: "",
+      id: 0,
+    });
   }
 
   return (

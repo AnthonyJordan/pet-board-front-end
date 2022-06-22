@@ -19,6 +19,10 @@ function AddUserForm({ onAddUser }) {
     })
       .then((r) => r.json())
       .then((newUser) => onAddUser(newUser));
+    setFormData({
+      name: "",
+      pets: [],
+    });
   }
   return (
     <form onSubmit={(e) => handleSubmit(e)}>

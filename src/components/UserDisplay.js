@@ -1,7 +1,7 @@
 import React from "react";
 import PetDisplay from "./PetDisplay";
 
-function UserDisplay({ name, pets, id, onUserDelete }) {
+function UserDisplay({ name, pets, id, onUserDelete, onPetDelete }) {
   const petElements = pets.map((pet) => (
     <PetDisplay
       key={pet.name}
@@ -10,11 +10,24 @@ function UserDisplay({ name, pets, id, onUserDelete }) {
       description={pet.description}
       user_id={pet.user_id}
       img_url={pet.img_url}
+      onPetDelete={onPetDelete}
     ></PetDisplay>
   ));
+
+  function handleDeleteClick() {
+    fetch(`http://localhost:9292/users/${id}`, {
+      method: "DELETE",
+    }).then(() => onUserDelete(id));
+  }
   return (
     <div className="userDisplay">
-      <h3 className="name">{name}</h3>
+      <h3 className="name">
+        {name}
+        <button className="deleteButton" onClick={() => handleDeleteClick()}>
+          X
+        </button>
+      </h3>
+
       <div className="displayBox">{petElements}</div>
     </div>
   );

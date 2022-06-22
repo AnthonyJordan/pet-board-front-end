@@ -50,6 +50,14 @@ function App() {
     updatedUser.pets = updatedPets;
     updateUser(updatedUser);
   }
+
+  function deletePet(id, user_id) {
+    const user = users.find((user) => user.id === user_id);
+    const updatedPets = user.pets.filter((pet) => pet.id !== id);
+    const updatedUser = { ...user };
+    updatedUser.pets = updatedPets;
+    updateUser(updatedUser);
+  }
   return (
     <>
       <TitleBox
@@ -59,7 +67,11 @@ function App() {
         onAddPet={addPet}
         onUpdatePet={updatePet}
       ></TitleBox>
-      <DisplayBox users={users} onUserDelete={deleteUser}></DisplayBox>
+      <DisplayBox
+        users={users}
+        onUserDelete={deleteUser}
+        onPetDelete={deletePet}
+      ></DisplayBox>
     </>
   );
 }
